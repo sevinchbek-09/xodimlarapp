@@ -77,6 +77,7 @@ class _AllMindsPageState extends State<AllMindsPage> {
                       return Card(
                         child: ListTile(
                           onTap: () {
+
                             Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => MurojaatPage(
                                   matn: snapshot.data![index].matn,
