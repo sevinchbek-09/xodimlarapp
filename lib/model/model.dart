@@ -26,20 +26,20 @@ class Murojaat {
   });
 
   factory Murojaat.fromJson(Map<String, dynamic> json) => Murojaat(
-    matn: json["matn"],
-    bino: json["bino"],
-    xona: json["xona"],
-    bulim: json["bulim"],
-    tel: json["tel"],
-    status: json["status"],
-  );
+        matn: json["matn"],
+        bino: json["bino"],
+        xona: json["xona"],
+        bulim: json["bulim"],
+        tel: json["tel"],
+        status: json["status"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "matn": matn,
-    "bino": bino,
-    "xona": xona,
-    "bulim": bulim,
-    "tel": tel,
-    "status": status,
-  };
+        "matn": matn,
+        "bino": bino,
+        "xona": xona,
+        "bulim": bulim,
+        "tel": tel,
+        "status": status,
+      };
 }

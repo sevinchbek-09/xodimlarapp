@@ -26,7 +26,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         color: Colors.blueAccent,
-        home: box.read('Token')==null?const AuthPage():const AllMindsPage(),
+        home:
+        box.read('ism')==null?const AuthPage():const AllMindsPage(),
         // box.read('UID')==null?SingInPage():const AllMindsPage(),
         );
   }

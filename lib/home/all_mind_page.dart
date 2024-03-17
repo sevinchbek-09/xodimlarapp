@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
@@ -22,8 +21,13 @@ class _AllMindsPageState extends State<AllMindsPage> {
   Widget build(BuildContext context) {
     Future<List<Murojaat>> getAllMinds() async {
       final db = FirebaseFirestore.instance;
-      return await db.collection('murojaat').get().then((value) =>
-          value.docs.map((e) => Murojaat.fromJson(e.data())).toList());
+      return await db
+          .collection('topshiriq')
+          .doc('${box.read("ism")}')
+          .collection('topshiriq')
+          .get()
+          .then((value) =>
+              value.docs.map((e) => Murojaat.fromJson(e.data())).toList());
     }
 
     Future refresh() async {
@@ -45,18 +49,12 @@ class _AllMindsPageState extends State<AllMindsPage> {
         actions: [
           IconButton(
               onPressed: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //   builder: (context) => HomePage(id:a),
-                // ));
+                box.remove('ism');
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => MyApp()),
+                    (Route<dynamic> route) => false);
               },
-              icon: Icon(Icons.add)),
-          IconButton(
-              onPressed: () {
-                box.remove('Token');
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MyApp()));
-              },
-              icon: Icon(Icons.shopping_cart))
+              icon: Icon(Icons.logout))
         ],
       ),
       body: RefreshIndicator(
@@ -79,7 +77,6 @@ class _AllMindsPageState extends State<AllMindsPage> {
                       return Card(
                         child: ListTile(
                           onTap: () {
-
                             Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => MurojaatPage(
                                   matn: snapshot.data![index].matn,
