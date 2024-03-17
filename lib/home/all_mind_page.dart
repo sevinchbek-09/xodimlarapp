@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../main.dart';
 import '../model/model.dart';
 import 'murojaat_id_page.dart';
 
@@ -51,8 +52,9 @@ class _AllMindsPageState extends State<AllMindsPage> {
               icon: Icon(Icons.add)),
           IconButton(
               onPressed: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => BuyPage()));
+                box.remove('Token');
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MyApp()));
               },
               icon: Icon(Icons.shopping_cart))
         ],

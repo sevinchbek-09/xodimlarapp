@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'api/firebase_api.dart';
+import 'authorization/auth_page.dart';
 import 'firebase_options.dart';
 import 'home/all_mind_page.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         color: Colors.blueAccent,
-        home: AllMindsPage()
+        home: box.read('Token')==null?const AuthPage():const AllMindsPage(),
         // box.read('UID')==null?SingInPage():const AllMindsPage(),
         );
   }
