@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:url_launcher/url_launcher.dart' as launcher;
+import 'package:url_launcher/url_launcher.dart';
 class MurojaatPage extends StatefulWidget {
   String matn;
   String bino;
@@ -60,7 +61,16 @@ class _State extends State<MurojaatPage> {
                         widget.tel,
                         style: TextStyle(fontSize: 20),
                       ),
-                      onPressed: () {}),
+                      onPressed: () async {
+
+                        final url=Uri(scheme: 'tel',path: '+998${widget.tel}');
+                        if (await canLaunchUrl(url)){
+                          launcher.launchUrl(url);
+                        }
+
+
+
+                      }),
                 ],
               ),
               SizedBox(height: 7,),

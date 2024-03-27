@@ -49,7 +49,7 @@ class _AuthPageState extends State<AuthPage> {
                   await db
                       .collection('user')
                       .doc(ism.text)
-                      .set({"ismi": "${ism.text}", "token": "$token"});
+                      .set({"ismi": "${ism.text}", "token": "$token","tel":111});
 
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(builder: (context) => AllMindsPage()),

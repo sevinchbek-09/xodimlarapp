@@ -59,7 +59,8 @@ class _AllMindsPageState extends State<AllMindsPage> {
       ),
       body: RefreshIndicator(
         onRefresh: refresh,
-        child: FutureBuilder<List<Murojaat>>(
+        child:
+        FutureBuilder<List<Murojaat>>(
             future: getAllMinds(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
